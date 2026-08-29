@@ -1,4 +1,4 @@
-# UG_LetterboxingEffectAnimator
+# UGLetterboxingEffectAnimator
 
 Letterboxing is a method of displaying a widescreen film on a narrower screen (such as a 16:9 or old 4:3 aspect ratio) without distorting or losing any of the original image. As a result of this process, black bars appear at the top and bottom of the frame.
 
@@ -15,29 +15,47 @@ Animation of the screen narrowing from the top and bottom. Two black cinematic b
 ### Initialization
 
 ``` swift
-let animator = UG_LetterboxingEffectAnimator(
-    on: view,
-    isLeavingAnimation: true
-)
-```
 
-**view** - the view onto which the visual elements will be added.
+ let movieScreenAnimator = UGLetterboxingEffectAnimator(
+     on: view,
+     inputData: UGLetterboxingEffectInputData(
+         isLeavingAnimation: true,
+         subviewBackgroundColor: UIColor.black,
+         subviewBorderColor: UIColor.white.cgColor,
+         screenWidth: 300,
+         padding: 120,
+         alpha: 10
+     )
+ )
 
-**isLeavingAnimation** - a flag that sets the initial position of the cinematic lines. **True** - if the lines should be visible initially. **False** - if the lines should be positioned off-screen.
+ ```
+
+**view** - The view to which visual elements will be added.
+
+**isLeavingAnimation** - A flag that sets the initial position of the cinematic lines. **True** - If you want the lines to be initially visible. **False** - If you want the lines to be off-screen.
+
+**subviewBackgroundColor** - The color of the subview bars.
+
+**subviewBorderColor** - The border color of the subview bars.
+
+**screenWidth** - The width of the screen.
+
+> [!NOTE]
+> Note: screenWidth is passed in if the view's dimensions are not yet known.
+
+**padding** - Padding from the edge of the screen to the maximum edge of the bar.
+
+**alpha** - The tilt angle of the plate.
 
 ---
 
 ### Animation
 
 ``` swift
-animator?.animate(
-    isLeavingAnimation: false,
-    isFastAnimation: true
-)
+animator?.animate()
 ```
-**isLeavingAnimation** - a flag that determines the direction of the bands' movement. Set to **True** if the lines should move off-screen. Set to **False** if the lines should appear from off-screen and move toward each other to the center.
 
-**isFastAnimation** - a flag for fast or slow animation. Set to **True** for fast animation. Set to **False** for slow animation.
+Tracking which direction the animation moves is done automatically and depends on the initial isLeavingAnimation parameter.
 
 ---
 
@@ -113,8 +131,22 @@ ABCD = LMNO
 
 ## Installation
 
-TODO
+### Swift Package Manager
+
+Add the following dependency to your Package.swift:
+
+``` swift
+dependencies: [
+    .package(url: "https://github.com/UnrealGlitch/UGLetterboxingEffectAnimator.git", from: "1.0.0")
+]
+```
+
+Or via Xcode:
+
+- Go to File → Add Package Dependencies...
+- Enter the repository URL: https://github.com/UnrealGlitch/UGLetterboxingEffectAnimator.git
+- Select the version rule (e.g., "Up to Next Major") and click Add Package
 
 ## License
 
-TODO
+Apache 2.0
