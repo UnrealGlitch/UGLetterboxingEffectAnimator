@@ -4,7 +4,7 @@ Letterboxing is a method of displaying a widescreen film on a narrower screen (s
 
 ## What it looks like
 
-<img width="295" height="640" alt="Example" src="https://github.com/user-attachments/assets/708ab529-59b9-4142-b576-a273df529c26" />
+<img width="295" height="640" alt="Example" src="./GitHubAssets/preview.gif" />
 
 ## Description
 
@@ -61,7 +61,7 @@ Tracking which direction the animation moves is done automatically and depends o
 
 ### Calculations
 
-<img width="310" height="599" alt="image" src="https://github.com/user-attachments/assets/9bb15efa-7b31-44d0-862b-8a86dd7ae6b2" />
+<img width="310" height="599" alt="image" src="./GitHubAssets/calculations.png" />
 
 FGRP - phone screen
 
